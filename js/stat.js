@@ -22,7 +22,7 @@ var renderCloud = function (ctx, x, y, color) {
 
 // Переменная текста
 var renderText = function (ctx, x, y, text) {
-  ctx.font = '16px Tahoma';
+  ctx.font = '16px PT Mono';
   ctx.fillStyle = '#000000';
   ctx.fillText(text, x, y);
 };
@@ -33,7 +33,7 @@ var printHistogram = function (ctx, player, id, time, maxTime) {
   ctx.fillText(Math.round(time), CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, barResultHeight - ((BAR_HEIGHT * time) / maxTime) + TEXT_GAP + GAP);
   ctx.fillText(player, CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, CLOUD_HEIGHT - GAP);
 
-  ctx.fillStyle = (player === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgb(0, 15, 255,' + Math.random() + ')';
+  ctx.fillStyle = (player === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'hsl(235, 97%, 27%, ' + Math.random() + ')';
 
   ctx.fillRect(CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, CLOUD_HEIGHT - GIST_GAP, BAR_WIDTH, (-BAR_HEIGHT * time) / maxTime);
 };
