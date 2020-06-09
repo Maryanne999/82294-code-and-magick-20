@@ -27,14 +27,17 @@ var renderText = function (ctx, x, y, text) {
   ctx.fillText(text, x, y);
 };
 
+var getRandomPercent = function () {
+  return Math.round(Math.random() * 100);
+};
+
 // Переменная гистограмм
 var printHistogram = function (ctx, player, id, time, maxTime) {
   ctx.fillStyle = '#000000';
   ctx.fillText(Math.round(time), CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, barResultHeight - ((BAR_HEIGHT * time) / maxTime) + TEXT_GAP + GAP);
   ctx.fillText(player, CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, CLOUD_HEIGHT - GAP);
 
-  ctx.fillStyle = (player === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'hsl(235, 97%, 27%, ' + Math.random() + ')';
-
+  ctx.fillStyle = (player === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'hsl(235, 97%, ' + getRandomPercent() + '%)';
   ctx.fillRect(CLOUD_X + GAP + GIST_GAP + (BAR_GAP + BAR_WIDTH) * id, CLOUD_HEIGHT - GIST_GAP, BAR_WIDTH, (-BAR_HEIGHT * time) / maxTime);
 };
 
